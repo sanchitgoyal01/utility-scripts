@@ -1,0 +1,10 @@
+!/usr/bin/expect -f
+set profile [lindex $argv 0]
+if {$profile == "<<ProfileName>>"} {
+    set ACCOUNT "<<Account@SERVER>>"
+    set PASS "<<YourPassword>>\r"
+}
+spawn ssh $ACCOUNT
+expect "assword:"
+send $PASS
+interact
